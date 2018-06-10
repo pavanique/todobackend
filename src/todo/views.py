@@ -13,7 +13,7 @@ class TodoItemViewSet(viewsets.ModelViewSet):
 
 	def perform_create(self, serializer):
 		# Save instance to get primary  key and then update URL
-		instanc = serializer.save()
+		instance = serializer.save()
 		instance.url = reverse('todoitem-detail', args=[instance.pk], request=self.request)
 		instance.save()
 
