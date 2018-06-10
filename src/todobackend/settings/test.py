@@ -2,8 +2,8 @@ from .base import *
 import os
 
 # Installed apps
-INSTALLED_APPS += ('django_nose')
-TEST_RUNNER = 'django_nose.nose.NoseTestSuiteRunner'
+INSTALLED_APPS += ('django_nose', )
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 TEST_OUTPUT_DIR= os.environ.get('TEST_OUTPUT_DIR','.')
 NOSE_ARGS = [
 	'--verbosity=2',
@@ -11,11 +11,11 @@ NOSE_ARGS = [
 	'--with-coverage',
 	'--cover-package=todo',
 	'--with-spec',
-	'--sepc-color',
+	'--spec-color',
 	'--with-xunit',
 	'--xunit-file=%s/unittests.xml' % TEST_OUTPUT_DIR,
 	'--cover-xml',
-	'--cover-xml=%s/coverage.xml' % TEST_OUTPUT_DIR,
+	'--cover-xml-file=%s/coverage.xml' % TEST_OUTPUT_DIR,
 ]
 
 #Database
